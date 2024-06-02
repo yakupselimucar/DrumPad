@@ -1,116 +1,60 @@
-import 'package:audioplayers/audioplayers.dart';
+// main.dart
+import 'package:drum_machine/pages/electronics.dart';
+import 'package:drum_machine/pages/main.page.dart';
+import 'package:drum_machine/pages/piano.dart';
+import 'package:flashy_tab_bar2/flashy_tab_bar2.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: DrumPage(),
-    );
-  }
+  State<MyApp> createState() => _MyAppState();
 }
 
-class DrumPage extends StatefulWidget {
-  const DrumPage({super.key});
+int selectedIndex = 0;
+final List<Widget> pages = [
+  const DrumPage(),
+  const PianoPage(),
+  const Electronics()
+];
 
-  @override
-  State<DrumPage> createState() => _DrumPageState();
-}
-
-class _DrumPageState extends State<DrumPage> {
-  final oynatici = AudioPlayer();
-
-  void playFonksiyon(String musicAdi) {
-    oynatici.play(
-      AssetSource("$musicAdi.wav"),
-    );
+class _MyAppState extends State<MyApp> {
+  void _onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        children: [
-          //BİR COLUMN İÇERİSİNDEKİ HERHANGİ BİR ÇOCUK EXPANDED ALDIYSA O DİKEYDE GENİŞLER
-          //BİR ROW İÇERİSİNDEKİ HERHANGİ BİR ÇOCUK EXPANDED ALDIYSA O YATAYDA GENİŞLER
-          Expanded(
-            child: Row(
-              children: [
-                buildDrumButton('woo', Colors.yellow),
-                buildDrumButton('clap2', Colors.orangeAccent),
-              ],
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        body: pages[selectedIndex],
+        bottomNavigationBar: FlashyTabBar(
+          selectedIndex: selectedIndex,
+          animationCurve: Curves.linear,
+          iconSize: 30,
+          onItemSelected: _onItemTapped,
+          items: [
+            FlashyTabBarItem(
+              icon: const Icon(Icons.animation_rounded),
+              title: const Text('Effects'),
             ),
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                buildDrumButton('crash', Colors.pink),
-                buildDrumButton('oobah', Colors.red),
-              ],
+            FlashyTabBarItem(
+              icon: const Icon(Icons.piano),
+              title: const Text('Piano'),
             ),
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                buildDrumButton('how', Colors.blue),
-                buildDrumButton('clap3', Colors.brown)
-              ],
+            FlashyTabBarItem(
+              icon: const Icon(Icons.electric_bolt),
+              title: const Text('Electronics'),
             ),
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                buildDrumButton('ridebel', Colors.blueGrey),
-                buildDrumButton('clap1', Colors.green),
-              ],
-            ),
-          ),
-        ],
-      ),
-
-      // child: Center(
-      //   child: TextButton(
-      //     onPressed: () {
-      //       oynatici.play(AssetSource('how.wav'));
-      //     },
-      //     style: const ButtonStyle(),
-      //     child: const Text(
-      //       'Buton Test',
-      //       style: TextStyle(fontSize: 30),
-      //     ),
-      //   ),
-      // ),
-    );
-  }
-
-  Widget buildDrumButton(String melodi, Color renk) {
-    return Expanded(
-      child: TextButton(
-        onPressed: () {
-          playFonksiyon(melodi);
-        },
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: renk,
-          ),
-          //Center yapmazsan Container; text boyutu kadar oluyor
-          alignment: Alignment.center,
-          child: Text(
-            melodi,
-            style: GoogleFonts.sedgwickAveDisplay(
-              color: Colors.black,
-              fontSize: 30,
-            ),
-          ),
+          ],
         ),
       ),
     );
