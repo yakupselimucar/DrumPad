@@ -39,6 +39,7 @@ dependencies:
   google_fonts: ^5.1.0
   flashy_tab_bar2: ^0.0.9
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -50,9 +51,9 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
 
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
 

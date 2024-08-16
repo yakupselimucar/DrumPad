@@ -1,4 +1,4 @@
-package com.example.drum_machine
+package com.drumpadbasic.demo
 
 import io.flutter.embedding.android.FlutterActivity
 

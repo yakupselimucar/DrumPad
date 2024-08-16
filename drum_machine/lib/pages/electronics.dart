@@ -29,32 +29,32 @@ class _ElectronicsState extends State<Electronics> {
             Expanded(
               child: Row(
                 children: [
-                  buildDrumButton('', Colors.yellow),
-                  buildDrumButton('', Colors.orangeAccent),
+                  buildDrumButton('bell', Colors.yellow),
+                  buildDrumButton('bass_hit', Colors.orangeAccent),
                 ],
               ),
             ),
             Expanded(
               child: Row(
                 children: [
-                  buildDrumButton('', Colors.pink),
-                  buildDrumButton('', Colors.red),
+                  buildDrumButton('drup_tis', Colors.pink),
+                  buildDrumButton('dup_tis', Colors.red),
                 ],
               ),
             ),
             Expanded(
               child: Row(
                 children: [
-                  buildDrumButton('', Colors.blue),
-                  buildDrumButton('', Colors.brown)
+                  buildDrumButton('percussion', Colors.blue),
+                  buildDrumButton('tap', Colors.brown)
                 ],
               ),
             ),
             Expanded(
               child: Row(
                 children: [
-                  buildDrumButton('', Colors.blueGrey),
-                  buildDrumButton('', Colors.green),
+                  buildDrumButton('tiptis', Colors.blueGrey),
+                  buildDrumButton('dry', Colors.green),
                 ],
               ),
             ),

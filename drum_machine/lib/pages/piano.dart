@@ -29,23 +29,23 @@ class _PianoPageState extends State<PianoPage> {
             Expanded(
               child: Row(
                 children: [
-                  buildDrumButton('Do', Colors.yellow),
-                  buildDrumButton('Re', Colors.orangeAccent),
+                  buildDrumButton('Do', Colors.redAccent),
+                  buildDrumButton('Re', Colors.cyan),
                 ],
               ),
             ),
             Expanded(
               child: Row(
                 children: [
-                  buildDrumButton('Mi', Colors.pink),
-                  buildDrumButton('Fa', Colors.red),
+                  buildDrumButton('Mi', Colors.yellowAccent),
+                  buildDrumButton('Fa', Colors.purpleAccent),
                 ],
               ),
             ),
             Expanded(
               child: Row(
                 children: [
-                  buildDrumButton('Sol', Colors.blue),
+                  buildDrumButton('Sol', Colors.teal),
                   buildDrumButton('La', Colors.brown)
                 ],
               ),
